@@ -22,7 +22,7 @@ public class Paddle {
         this.x = x;
         this.y = y;
         this.width= w;
-        this.height = y;
+        this.height = h;
         this.speed  = s;
     }
 
