@@ -5,10 +5,15 @@ public class GameDisplay extends JPanel {
 
     private Paddle pd;
 
+
+
     public GameDisplay(Paddle p){
 
         pd = p;
         setPreferredSize(new Dimension(600, 600));
+        this.addKeyListener( new InputHandler(p));
+        this.setFocusable(true);
+
 
 
     }

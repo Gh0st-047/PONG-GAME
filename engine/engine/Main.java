@@ -12,9 +12,8 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
 
-
-
-
+        GameEngine ge1 = new GameEngine(g1);
+        g1.requestFocus();
 
 
 
