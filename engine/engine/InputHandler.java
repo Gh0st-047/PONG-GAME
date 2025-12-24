@@ -7,11 +7,15 @@ public class InputHandler implements KeyListener {
 
     private final Paddle pdl1;
     private final Paddle pdl2;
+    private final Ball ball;
+    boolean ballMoving = false;
 
-    public InputHandler(Paddle pd, Paddle pd2){
+
+    public InputHandler(Paddle pd, Paddle pd2, Ball b){
 
         this.pdl1 = pd;
         this.pdl2 = pd2;
+        this.ball = b;
     }
 
 
@@ -31,14 +35,15 @@ public class InputHandler implements KeyListener {
 
         }else if (key == KeyEvent.VK_RIGHT){
             pdl2.moveDown();
+        }else if (key == KeyEvent.VK_SPACE){
+            ballMoving = true;
+          }
         }
-
-    }
 
 
     @Override
     public void keyReleased(KeyEvent e) {
-  
+
     }
 
 
@@ -46,4 +51,8 @@ public class InputHandler implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-}
+    }
+
+
+
+

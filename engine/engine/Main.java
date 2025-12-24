@@ -8,7 +8,9 @@ public class Main {
 
         Paddle pd2 = new Paddle(500,200,10,35,10);
 
-        GameDisplay g1 = new GameDisplay(pd1, pd2);
+        Ball b1 = new Ball(200, 200,20,20, 2);
+
+        GameDisplay g1 = new GameDisplay(pd1, pd2, b1);
 
 
         JFrame frame = new JFrame("Pong Game");
@@ -18,15 +20,10 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
 
-        GameEngine ge1 = new GameEngine(g1);
-
+        GameEngine ge1 = new GameEngine(g1, b1);
 
 
         g1.requestFocusInWindow();
-
-
-
-
 
 
     }
