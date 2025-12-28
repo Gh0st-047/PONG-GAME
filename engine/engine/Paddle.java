@@ -22,14 +22,14 @@ public class Paddle {
         this.x = x;
         this.y = y;
         this.width= w;
-        this.height = y;
+        this.height = h;
         this.speed  = s;
     }
 
 
     public void moveUP(){
 
-        int temp = y- speed;
+        int temp = y - speed;
         if (temp <0){
             y = 0;
         } else{
@@ -40,7 +40,7 @@ public class Paddle {
 
     public void moveDown(){
 
-        int temp = y+ speed;
+        int temp = y + speed;
         if ( temp > 600){
             y = 600 - height;
         }else {
