@@ -4,23 +4,30 @@ import java.awt.*;
 public class Main {
     public static void main(String [] args){
 
-        Paddle pd1 = new Paddle(0,200,10,35,10);
+        Paddle pd1 = new Paddle(0,200,20,50,20);
 
-        Paddle pd2 = new Paddle(580,200,10,35,10);
+        Paddle pd2 = new Paddle(580,200,20,50,20);
 
-        Ball b1 = new Ball(200, 200,20,20, 2);
+        Ball b1 = new Ball(200, 200,20,20, 3);
 
 
 
         JFrame frame = new JFrame("Pong Game");
-        GameDisplay g1 = new GameDisplay(pd1, pd2, b1);
+        // first we provide null to the gameengine object
+        GameEngine ge1 = new GameEngine(null, b1, pd1,pd2);
+
+        // created ge1 is provided to gamedisplay
+        GameDisplay g1 = new GameDisplay(pd1, pd2, b1, ge1);
+
+        // now ge1 takes the object of g1....
+        ge1.setDisplay(g1);
+
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(g1);
         frame.pack();
         frame.setResizable(false);
         frame.setVisible(true);
-
-        GameEngine ge1 = new GameEngine(g1, b1, pd1,pd2);
 
 
         g1.requestFocusInWindow();

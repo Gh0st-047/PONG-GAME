@@ -1,5 +1,9 @@
 public class Ball {
 
+
+
+    // basic variables stuff
+
     private int x;
     private int y;
     private int width;
@@ -7,8 +11,30 @@ public class Ball {
     private int speed;
 
 
+    // important direction variables for the collision of ball with the left/right padel
     private int Right = 1;
     private int Up = 1;
+
+    private boolean moving = false;
+
+
+    public void reset(){
+        x = 300;
+        y = 300;
+
+        moving = false;
+
+    }
+
+
+    public void start(){
+
+        moving = true;
+    }
+
+    public void stop() {
+        moving = false;
+    }
 
 
     public Ball(){
@@ -18,7 +44,6 @@ public class Ball {
         this.width = 20;
         this.height = 20;
         this.speed = 15;
-
 
     }
 
@@ -40,7 +65,6 @@ public class Ball {
         return this.y;
     }
 
-
     public int get_width(){
         return this.width;
     }
@@ -51,36 +75,43 @@ public class Ball {
 
 
 
+    // ball movement function that decides the movement of the fucntions and everything else
+
     public void ball_Movement( Paddle left , Paddle right){
 
-        x = x + Right * speed;
-        y = y + Up * speed;
 
-        if (x <= 10  || x >= 570){
+        if (moving){
 
-            Right = Right* -1;
 
-        }
-        if ( y <= 10 || y >= 590){
+            x = x + Right * speed;
+            y = y + Up * speed;
 
-            Up = Up * -1 ;
 
-        }
+            // reflect the ball back when it hits the up and down side of the screen
+            if ( y <= 0 || y >= 600){
 
-        if ( x <= left.getX() + left.getWidth() && x + width >= left.getX() && y <= left.getY() + left.getHeight() && y+ height >= left.getY()){
+                Up = Up * -1 ;
 
-            Right = 1;
+            }
 
-        }
 
-        if ( x + width >= right.getX() && x <= right.getX() + right.getWidth() && y <= right.getY() + right.getHeight() && y + height >= right.getY() ){
-            Right =  - 1;
+            // tooke me around 3-4 hours figuring out this collision betwenn ball and paddles...( very basic stuff but very difficult
+            //collision of the ball with left paddle
+            if ( x <= left.getX() + left.getWidth() && x + width >= left.getX() && y <= left.getY() + left.getHeight() && y+ height >= left.getY()){
+
+                Right = 1;
+
+            }
+
+            //collision of the ball with right paddle
+
+
+            if ( x + width >= right.getX() && x <= right.getX() + right.getWidth() && y <= right.getY() + right.getHeight() && y + height >= right.getY() ){
+                Right =  - 1;
+            }
+
         }
 
     }
-
-
-
-
 
 }

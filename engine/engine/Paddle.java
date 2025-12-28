@@ -1,5 +1,7 @@
 public class Paddle {
 
+
+    // basic variables decelaration
     private int x;
     private int y;
     private int width;
@@ -27,6 +29,7 @@ public class Paddle {
     }
 
 
+    // paddles movements up and down - idr movement hai
     public void moveUP(){
 
         int temp = y - speed;
