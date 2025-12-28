@@ -30,10 +30,10 @@ public class InputHandler implements KeyListener {
         }else if (key == KeyEvent.VK_S){
             pdl1.moveDown();
 
-        } else if (key == KeyEvent.VK_DOWN){
+        } else if (key == KeyEvent.VK_P){
             pdl2.moveUP();
 
-        }else if (key == KeyEvent.VK_RIGHT){
+        }else if (key == KeyEvent.VK_L){
             pdl2.moveDown();
         }else if (key == KeyEvent.VK_SPACE){
             ballMoving = true;

@@ -6,6 +6,11 @@ public class Ball {
     private int height;
     private int speed;
 
+
+    private int Right = 1;
+    private int Up = 1;
+
+
     public Ball(){
 
         this.x = 100;
@@ -46,17 +51,36 @@ public class Ball {
 
 
 
+    public void ball_Movement( Paddle left , Paddle right){
 
-    public void ball_move_right(){
+        x = x + Right * speed;
+        y = y + Up * speed;
 
-        int temp;
-        temp = x + speed;
-        if (temp> 600){
-            x = 600 - width;
-        }else{
-            x = temp;
+        if (x <= 10  || x >= 570){
+
+            Right = Right* -1;
+
+        }
+        if ( y <= 10 || y >= 590){
+
+            Up = Up * -1 ;
+
         }
 
+        if ( x <= left.getX() + left.getWidth() && x + width >= left.getX() && y <= left.getY() + left.getHeight() && y+ height >= left.getY()){
+
+            Right = 1;
+
+        }
+
+        if ( x + width >= right.getX() && x <= right.getX() + right.getWidth() && y <= right.getY() + right.getHeight() && y + height >= right.getY() ){
+            Right =  - 1;
+        }
 
     }
+
+
+
+
+
 }
