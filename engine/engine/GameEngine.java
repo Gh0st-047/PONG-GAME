@@ -1,6 +1,6 @@
-import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 
 
@@ -19,8 +19,8 @@ public class GameEngine {
     private String player1Name;
     private String player2Name;
 
-    private int fawad_score = 0;
-    private int hashir_score =0;
+    private int player1_score = 0;
+    private int player2_score =0;
 
     private boolean gameOver;
 
@@ -30,23 +30,23 @@ public class GameEngine {
     }
 
     public void startNewGame() {
-        fawad_score = 0;
-        hashir_score = 0;
+        player1_score = 0;
+        player2_score = 0;
         b.reset();
         b.start();
         gameOver = false;
     }
 
 
-    public int getFawadScore( )
+    public int getPlayer1Score( )
     {
-        return this.fawad_score ;
+        return this.player1_score ;
     }
 
 
-    public int getHashir_score( )
+    public int getPlayer2Score( )
     {
-        return this.hashir_score ;
+        return this.player2_score ;
     }
 
     public String getPlayer1Name() {
@@ -66,10 +66,8 @@ public class GameEngine {
 
     public void resetGame(){
 
-        fawad_score = 0;
-        hashir_score = 0;
-
-
+        player1_score = 0;
+        player2_score = 0;
         b.reset();
 
     }
@@ -99,17 +97,17 @@ public class GameEngine {
                     b.ball_Movement(p1, p2);
 
                     if (b.getX() < 0){
-                        hashir_score +=1;
+                        player2_score +=1;
                         b.reset();
 
                     } else if (b.getX() > 600) {
-                        fawad_score +=1;
+                        player1_score +=1;
                         b.reset();
 
 
                     }
 
-                    if ( fawad_score >= 5 || hashir_score >=  5) {
+                    if ( player1_score >= 5 || player2_score >=  5) {
                         b.stop();
                         gameOver = true;
 

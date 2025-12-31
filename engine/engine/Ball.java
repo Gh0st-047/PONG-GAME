@@ -12,8 +12,9 @@ public class Ball {
 
 
     // important direction variables for the collision of ball with the left/right padel
-    private int Right = 1;
-    private int Up = 1;
+    private int Right = 1; // -1 hoga tou ball left jaye ga
+
+    private int Up = 1; // -1 hoga tou ball up jaye ga
 
     private boolean moving = false;
 

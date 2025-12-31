@@ -33,8 +33,8 @@ public class GameDisplay extends JPanel {
 
         // prints informaiton on the screen....
 
-        int fawadscore = engine.getFawadScore();
-        int hashirscore = engine.getHashir_score();
+        int fawadscore = engine.getPlayer1Score();
+        int hashirscore = engine.getPlayer2Score();
 
         super.paintComponent(g);
         g.setColor(Color.black);
@@ -50,10 +50,10 @@ public class GameDisplay extends JPanel {
 
         g.setFont(new Font("Arial", Font.BOLD, 30));
 
-        if( engine.getFawadScore() >= 5){
+        if( engine.getPlayer1Score() >= 5){
             g.drawString(engine.getPlayer1Name() + " Wins",250,300);
 
-        }else if (engine.getHashir_score() >=5){
+        }else if (engine.getPlayer2Score() >=5){
             g.drawString(engine.getPlayer2Name() + " Wins", 250, 300);
         }
     }
