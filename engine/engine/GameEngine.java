@@ -16,6 +16,8 @@ public class GameEngine {
     Paddle p1;
     Paddle p2;
 
+    private String player1Name;
+    private String player2Name;
 
     private int fawad_score = 0;
     private int hashir_score =0;
@@ -47,6 +49,14 @@ public class GameEngine {
         return this.hashir_score ;
     }
 
+    public String getPlayer1Name() {
+        return this.player1Name;
+    }
+
+    public String getPlayer2Name() {
+        return this.player2Name;
+    }
+
     // this is important because gamedisplay takes gameengine object and the also gameengine req gamedisplay object -  both depeding to each other..
     // that's why ii have initialzed  null to the gameengine in the main.java
     // this function is used to connect both classes..
@@ -67,12 +77,14 @@ public class GameEngine {
 
 
 
-    public GameEngine(GameDisplay g , Ball b, Paddle p1 , Paddle p2){
+    public GameEngine(GameDisplay g , Ball b, Paddle p1 , Paddle p2, String player1Name, String player2Name){
 
         this.dg = g;
         this.b = b;
         this.p1 = p1;
         this.p2 = p2;
+        this.player1Name = player1Name;
+        this.player2Name = player2Name;
 
 
     // this timer function is really important because movement depends

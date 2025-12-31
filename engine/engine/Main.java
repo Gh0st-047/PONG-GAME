@@ -1,8 +1,11 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
     public static void main(String [] args){
+        new GUI();
+    }
+
+    public void startPongGame(String player1Name, String player2Name){
 
         Paddle pd1 = new Paddle(0,200,20,50,20);
 
@@ -14,7 +17,7 @@ public class Main {
 
         JFrame frame = new JFrame("Pong Game");
         // first we provide null to the gameengine object
-        GameEngine ge1 = new GameEngine(null, b1, pd1,pd2);
+        GameEngine ge1 = new GameEngine(null, b1, pd1, pd2, player1Name, player2Name);
 
         // created ge1 is provided to gamedisplay
         GameDisplay g1 = new GameDisplay(pd1, pd2, b1, ge1);

@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class GameDisplay extends JPanel {
 
@@ -45,16 +45,16 @@ public class GameDisplay extends JPanel {
         g.setColor(Color.red);
         g.fillOval(ball.getX(), ball.getY(), ball.get_width(), ball.get_height());
         g.setColor(Color.white);
-        g.drawString("Fawad Score:" + fawadscore, 50, 50);
-        g.drawString("Hashir Score:" + hashirscore , 450, 50);
+        g.drawString(engine.getPlayer1Name() + " Score:" + fawadscore, 50, 50);
+        g.drawString(engine.getPlayer2Name() + " Score:" + hashirscore , 450, 50);
 
         g.setFont(new Font("Arial", Font.BOLD, 30));
 
         if( engine.getFawadScore() >= 5){
-            g.drawString("Fawad Wins",250,300);
+            g.drawString(engine.getPlayer1Name() + " Wins",250,300);
 
         }else if (engine.getHashir_score() >=5){
-            g.drawString("Hashir Wins", 250, 300);
+            g.drawString(engine.getPlayer2Name() + " Wins", 250, 300);
         }
     }
 }
